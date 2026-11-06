@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elly Parngamvichit</title>
+<meta name="description" content="Elly Parngamvichit, MSc student in People Analytics and Human-Centric Management at UCL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oat: #E9E5D6;
+    --oat-deep: #DAD3BC;
+    --panel: #F5F1E6;
+    --walnut: #3B2A20;
+    --teal: #2E5A57;
+    --mustard: #D6A12B;
+    --rust: #A94F2B;
+    --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--oat);
+    color: var(--walnut);
+    font-family: var(--sans);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, .button:focus-visible {
+    outline: 3px solid var(--rust);
+    outline-offset: 3px;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Top bar */
+  .topbar { padding: 1.5rem 0; }
+  .topbar .wrap {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  }
+  .brand { font-family: var(--serif); font-size: 1.35rem; text-decoration: none; }
+  .topbar nav { display: flex; gap: 1.75rem; font-weight: 500; }
+  .topbar nav a { text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+  .topbar nav a:hover { border-bottom-color: var(--mustard); }
+
+  /* Hero */
+  .hero { padding: 2rem 0 5rem; }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(3rem, 7vw, 5.25rem);
+    line-height: 1.02; letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+  }
+  .hero .role { font-size: 1.3rem; font-weight: 500; margin: 0 0 0.25rem; }
+  .hero .school { margin: 0 0 2.25rem; color: var(--teal); font-weight: 500; }
+
+  .button {
+    display: inline-block; text-decoration: none; font-weight: 600;
+    background: var(--teal); color: var(--panel);
+    padding: 0.85rem 1.7rem; border-radius: 999px;
+    transition: background 0.2s;
+  }
+  .button:hover { background: var(--rust); }
+
+  /* The one memorable element: starburst + arch portrait */
+  .portrait { position: relative; width: 100%; max-width: 460px; aspect-ratio: 1; margin-left: auto; }
+  .portrait svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .burst { transform-origin: 50% 50%; animation: settle 1.6s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes settle { from { transform: rotate(-35deg); } to { transform: rotate(0); } }
+
+  .arch {
+    position: absolute; left: 50%; top: 50%;
+    width: 54%; aspect-ratio: 5 / 6.6;
+    transform: translate(-50%, -50%);
+    border-radius: 999px 999px 0 0;
+    background: var(--teal);
+    box-shadow: 12px 12px 0 var(--walnut);
+    overflow: hidden;
+    display: grid; place-items: center;
+  }
+  .arch .initials {
+    font-family: var(--serif); font-size: 4rem; color: var(--mustard);
+  }
+  .arch img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+
+  /* About */
+  .about { background: var(--panel); padding: 5rem 0; }
+  .about .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; }
+  .about h2, .contact h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; margin: 0;
+  }
+  .about h2 { border-top: 6px solid var(--mustard); padding-top: 1rem; align-self: start; }
+  .about p { margin: 0 0 1.25rem; max-width: 62ch; }
+  .about p:last-child { margin-bottom: 0; }
+
+  /* Contact */
+  .contact { background: var(--teal); color: var(--panel); padding: 5rem 0; }
+  .contact .wrap { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .contact p { margin: 0.75rem 0 0; max-width: 40ch; }
+  .contact .button { background: var(--mustard); color: var(--walnut); }
+  .contact .button:hover { background: var(--panel); }
+  .contact .button:focus-visible { outline-color: var(--panel); }
+
+  footer { padding: 1.75rem 0; font-size: 0.95rem; }
+
+  @media (max-width: 800px) {
+    .hero .wrap, .about .wrap { grid-template-columns: 1fr; gap: 2rem; }
+    .portrait { margin: 0 auto; max-width: 380px; }
+    .hero { padding-bottom: 3rem; }
+    .about, .contact { padding: 3.5rem 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .burst { animation: none; }
+    .button { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Elly Parngamvichit</a>
+    <nav aria-label="Main">
+      <a href="#about">About me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Elly Parngamvichit</h1>
+        <p class="role">MSc student, People Analytics and Human-Centric Management</p>
+        <p class="school">University College London</p>
+        <a class="button" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+
+      <div class="portrait">
+        <svg viewBox="0 0 480 480" aria-hidden="true" focusable="false">
+          <circle cx="240" cy="240" r="178" fill="#DAD3BC"/>
+          <g class="burst" stroke="#D6A12B" stroke-width="5" stroke-linecap="round" fill="#D6A12B">
+            <g id="rays">
+              <g><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(22.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(45 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(67.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(90 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(112.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(135 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(157.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(180 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(202.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(225 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(247.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(270 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(292.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+              <g transform="rotate(315 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
+              <g transform="rotate(337.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
+            </g>
+          </g>
+        </svg>
+        <div class="arch">
+          <span class="initials" aria-hidden="true">EP</span>
+          <!-- Add your photo as profile.jpg in the same folder as this file -->
+          <img src="profile.jpg" alt="Portrait of Elly Parngamvichit" onerror="this.remove()">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <div>
+        <p>I'm Elly, a Master's student at UCL studying People Analytics and Human-Centric Management. My course sits where data meets the workplace: using evidence to understand how people work, and to build organisations that work better for them.</p>
+        <p>I'm interested in decisions about people that are grounded in data and still treat people as people. [Edit this paragraph: add your background, what you're working on now, and the roles or topics you're looking for.]</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Contact</h2>
+        <p>The best way to reach me is on LinkedIn.</p>
+      </div>
+      <a class="button" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">Message me on LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Elly Parngamvichit</div>
+</footer>
+
+</body>
+</html>
