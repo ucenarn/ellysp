@@ -3,132 +3,108 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elly Parngamvichit</title>
-<meta name="description" content="Elly Parngamvichit, MSc student in People Analytics and Human-Centric Management at UCL.">
+<title>Elly Parngamvichit — People × Data</title>
+<meta name="description" content="Elly Parngamvichit — people, data and the future of work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --oat: #E9E5D6;
-    --oat-deep: #DAD3BC;
-    --panel: #F5F1E6;
-    --walnut: #3B2A20;
-    --teal: #2E5A57;
-    --mustard: #D6A12B;
-    --rust: #A94F2B;
-    --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
-    --sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+    --ink:#122B46; --blue:#1769AA; --sky:#8CB9D8; --ice:#DCEAF4;
+    --silver:#B9C8D4; --paper:#F5F8FA; --white:#FFFFFF; --line:#C8D5DF;
+    --serif:"DM Serif Display",Georgia,serif;
+    --sans:"Jost","Futura","Century Gothic",system-ui,sans-serif;
   }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--oat);
-    color: var(--walnut);
-    font-family: var(--sans);
-    font-size: 1.125rem;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+  .wrap{width:min(1220px,calc(100% - 64px));margin:0 auto}
+  .topbar{position:sticky;top:0;z-index:20;padding:15px 0;background:rgba(245,248,250,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(18,43,70,.12)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{font-family:var(--serif);font-size:1.3rem;text-decoration:none;letter-spacing:-.02em}
+  .topbar nav{display:flex;gap:clamp(16px,3vw,38px);font-size:.9rem;font-weight:600}
+  .topbar nav a{text-decoration:none;opacity:.72;transition:opacity .2s,color .2s}
+  .topbar nav a:hover{opacity:1;color:var(--blue)}
+  .hero{position:relative;min-height:690px;padding:90px 0 80px;overflow:hidden;background:linear-gradient(135deg,#F7FAFC 0%,#E6EEF4 60%,#D6E4ED 100%)}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:3vw}
+  .eyebrow,.viz-kicker{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(4rem,9.3vw,8.7rem);line-height:.88;letter-spacing:-.055em;margin:22px 0 26px;max-width:780px}
+  .hero h1 span{display:block;color:var(--blue);font-style:italic}
+  .hero .role{font-size:clamp(1.05rem,1.7vw,1.35rem);font-weight:500;max-width:530px;line-height:1.4;margin:0 0 9px}
+  .hero .school{color:#58748B;font-size:.95rem;font-weight:600;margin:0 0 30px}
+  .hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .button{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;padding:14px 21px;background:var(--ink);color:white;border:1px solid var(--ink);border-radius:3px;transition:transform .2s,background .2s}
+  .button:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+  .text-link{font-size:.9rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--blue);padding-bottom:3px}
+  .hero-art{position:relative;min-height:490px;display:grid;place-items:center}
+  .hero-art .orbit{position:absolute;width:min(39vw,450px);aspect-ratio:1;border:1px solid rgba(23,105,170,.26);border-radius:50%;animation:spin 32s linear infinite}
+  .hero-art .orbit:before,.hero-art .orbit:after{content:"";position:absolute;border:1px solid rgba(23,105,170,.2);border-radius:50%;inset:12%}
+  .hero-art .orbit:after{inset:25%}
+  .orb-core{position:relative;width:min(25vw,280px);aspect-ratio:1;border-radius:42% 58% 56% 44% / 48% 42% 58% 52%;background:radial-gradient(circle at 32% 26%,#F8FCFF 0%,#A9CBE1 23%,#4E8CB8 55%,#173E62 100%);box-shadow:inset -22px -25px 45px rgba(9,34,57,.34),inset 15px 12px 28px rgba(255,255,255,.55),0 35px 55px rgba(31,77,111,.22);animation:morph 9s ease-in-out infinite alternate}
+  .orb-core:after{content:"";position:absolute;width:35%;height:16%;top:17%;left:17%;border-radius:50%;background:rgba(255,255,255,.48);filter:blur(12px);transform:rotate(-35deg)}
+  .orbit-dot{position:absolute;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#fff,#7FAFD0);box-shadow:0 8px 18px #8CAFC6;top:12%;right:15%}
+  .orbit-dot.two{width:13px;height:13px;top:auto;right:auto;bottom:18%;left:14%;background:#1C5E91}
+  .art-caption{position:absolute;bottom:20px;right:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#66839A}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes morph{0%{border-radius:42% 58% 56% 44% / 48% 42% 58% 52%;transform:rotate(-8deg)}100%{border-radius:55% 45% 43% 57% / 42% 56% 44% 58%;transform:rotate(8deg)}}
+  .ticker{overflow:hidden;background:var(--ink);color:#EAF3F9;padding:13px 0;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+  .ticker-track{display:flex;width:max-content;gap:36px;animation:marquee 32s linear infinite}
+  .ticker span{color:#8CB9D8}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+  .about{padding:115px 0;background:#F8FAFC}
+  .about .wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw}
+  .section-index{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:700}
+  .about h2,.contact h2,.data-section h2{font-family:var(--serif);font-size:clamp(2.8rem,5vw,5rem);line-height:.98;font-weight:400;letter-spacing:-.035em;margin:12px 0}
+  .about-copy{max-width:720px;font-size:1.12rem;color:#405A70}
+  .about-copy p{margin:0 0 20px}
+  .about-copy p:first-child{font-size:1.4rem;color:var(--ink);line-height:1.4}
+  .interest-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+  .interest-row span{border:1px solid #B7C9D7;padding:7px 12px;font-size:.78rem;letter-spacing:.04em;color:#315B7A;background:#F1F6F9}
+  .data-section{padding:110px 0;background:#E3ECF2}
+  .data-section .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+  .data-section h2{max-width:600px;margin-bottom:0}
+  .data-intro{max-width:420px;color:#4E687D;margin:0 0 7px}
+  .viz-card{background:#F9FBFC;border:1px solid #B9C9D5;border-radius:5px;box-shadow:12px 12px 0 #C6D5DF;padding:clamp(18px,3vw,36px)}
+  .viz-title{font-family:var(--serif);font-size:2rem;margin:8px 0 5px}
+  .viz-copy{color:#536D82;font-size:.94rem;margin:0 0 20px}
+  .viz-controls{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin:20px 0}
+  .viz-controls label{display:grid;gap:6px;color:#4B657A;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+  .viz-controls select,.viz-controls button{min-height:42px;border:1px solid #AABCC9;background:white;color:#17334D;padding:8px 12px;border-radius:2px;font:inherit}
+  .viz-controls select{min-width:190px}
+  .viz-controls button{cursor:pointer;background:var(--blue);color:white;border-color:var(--blue);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .viz-controls button:hover{background:var(--ink)}
+  #cityChart{width:100%;min-height:390px}
+  .viz-status{color:#536D82;font-size:.88rem;border-top:1px solid #D4DFE6;padding-top:13px;margin-top:10px}
+  .viz-status strong{color:var(--ink)}
+  .viz-note{color:#74899A;font-size:.78rem;margin:9px 0 0}
+  .contact{padding:100px 0;background:var(--ink);color:white;position:relative;overflow:hidden}
+  .contact:after{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(180,211,231,.2);border-radius:50%;right:-150px;top:-190px;box-shadow:0 0 0 45px rgba(180,211,231,.035),0 0 0 90px rgba(180,211,231,.025)}
+  .contact .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+  .contact h2{margin:10px 0 12px}
+  .contact p{color:#B7C9D7;max-width:430px;margin:0}
+  .contact .button{background:#DCEAF4;color:var(--ink);border-color:#DCEAF4}
+  .contact .button:hover{background:#8CB9D8;border-color:#8CB9D8}
+  footer{padding:22px 0;background:#0D2034;color:#8EA8BA;font-size:.78rem;letter-spacing:.04em}
+  @media(max-width:800px){
+    .wrap{width:min(100% - 38px,620px)}
+    .topbar nav{gap:13px;font-size:.78rem}
+    .hero{padding:65px 0 45px;min-height:auto}
+    .hero .wrap{grid-template-columns:1fr;gap:12px}
+    .hero h1{font-size:clamp(4rem,17vw,6.7rem)}
+    .hero-art{min-height:340px}
+    .hero-art .orbit{width:290px}
+    .orb-core{width:190px}
+    .art-caption{bottom:0}
+    .about,.data-section,.contact{padding:72px 0}
+    .about .wrap{grid-template-columns:1fr;gap:25px}
+    .data-section .section-head{display:block}
+    .data-intro{margin-top:17px}
+    #cityChart{min-height:330px}
   }
-
-  a { color: inherit; }
-  a:focus-visible, .button:focus-visible {
-    outline: 3px solid var(--rust);
-    outline-offset: 3px;
-  }
-
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* Top bar */
-  .topbar { padding: 1.5rem 0; }
-  .topbar .wrap {
-    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-  }
-  .brand { font-family: var(--serif); font-size: 1.35rem; text-decoration: none; }
-  .topbar nav { display: flex; gap: 1.75rem; font-weight: 500; }
-  .topbar nav a { text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
-  .topbar nav a:hover { border-bottom-color: var(--mustard); }
-
-  /* Hero */
-  .hero { padding: 2rem 0 5rem; }
-  .hero .wrap {
-    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center;
-  }
-  .hero h1 {
-    font-family: var(--serif); font-weight: 400;
-    font-size: clamp(3rem, 7vw, 5.25rem);
-    line-height: 1.02; letter-spacing: -0.01em;
-    margin: 0 0 1.5rem;
-  }
-  .hero .role { font-size: 1.3rem; font-weight: 500; margin: 0 0 0.25rem; }
-  .hero .school { margin: 0 0 2.25rem; color: var(--teal); font-weight: 500; }
-
-  .button {
-    display: inline-block; text-decoration: none; font-weight: 600;
-    background: var(--teal); color: var(--panel);
-    padding: 0.85rem 1.7rem; border-radius: 999px;
-    transition: background 0.2s;
-  }
-  .button:hover { background: var(--rust); }
-
-  /* The one memorable element: starburst + arch portrait */
-  .portrait { position: relative; width: 100%; max-width: 460px; aspect-ratio: 1; margin-left: auto; }
-  .portrait svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .burst { transform-origin: 50% 50%; animation: settle 1.6s cubic-bezier(.2,.7,.2,1) both; }
-  @keyframes settle { from { transform: rotate(-35deg); } to { transform: rotate(0); } }
-
-  .arch {
-    position: absolute; left: 50%; top: 50%;
-    width: 54%; aspect-ratio: 5 / 6.6;
-    transform: translate(-50%, -50%);
-    border-radius: 999px 999px 0 0;
-    background: var(--teal);
-    box-shadow: 12px 12px 0 var(--walnut);
-    overflow: hidden;
-    display: grid; place-items: center;
-  }
-  .arch .initials {
-    font-family: var(--serif); font-size: 4rem; color: var(--mustard);
-  }
-  .arch img {
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  }
-
-  /* About */
-  .about { background: var(--panel); padding: 5rem 0; }
-  .about .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; }
-  .about h2, .contact h2 {
-    font-family: var(--serif); font-weight: 400;
-    font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; margin: 0;
-  }
-  .about h2 { border-top: 6px solid var(--mustard); padding-top: 1rem; align-self: start; }
-  .about p { margin: 0 0 1.25rem; max-width: 62ch; }
-  .about p:last-child { margin-bottom: 0; }
-
-  /* Contact */
-  .contact { background: var(--teal); color: var(--panel); padding: 5rem 0; }
-  .contact .wrap { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
-  .contact p { margin: 0.75rem 0 0; max-width: 40ch; }
-  .contact .button { background: var(--mustard); color: var(--walnut); }
-  .contact .button:hover { background: var(--panel); }
-  .contact .button:focus-visible { outline-color: var(--panel); }
-
-  footer { padding: 1.75rem 0; font-size: 0.95rem; }
-
-  @media (max-width: 800px) {
-    .hero .wrap, .about .wrap { grid-template-columns: 1fr; gap: 2rem; }
-    .portrait { margin: 0 auto; max-width: 380px; }
-    .hero { padding-bottom: 3rem; }
-    .about, .contact { padding: 3.5rem 0; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .burst { animation: none; }
-    .button { transition: none; }
+  @media(prefers-reduced-motion:reduce){
+    *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   }
 </style>
 </head>
@@ -139,6 +115,7 @@
     <a class="brand" href="#top">Elly Parngamvichit</a>
     <nav aria-label="Main">
       <a href="#about">About me</a>
+      <a href="#data">Data visualisation</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -148,51 +125,75 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <h1>Elly Parngamvichit</h1>
-        <p class="role">MSc student, People Analytics and Human-Centric Management</p>
-        <p class="school">University College London</p>
-        <a class="button" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <p class="eyebrow">People × Data × Possibility</p>
+        <h1>Elly<br><span>Parngamvichit.</span></h1>
+        <p class="role">Making sense of people, data and the way we work.</p>
+        <p class="school">MSc People Analytics & Human-Centric Management · University College London</p>
+        <div class="hero-actions">
+          <a class="button" href="#data">Explore my work</a>
+          <a class="text-link" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">Let's connect ↗</a>
+        </div>
       </div>
+      <div class="hero-art" aria-label="Abstract animated blue and silver 3D-inspired artwork">
+        <div class="orbit"><i class="orbit-dot"></i><i class="orbit-dot two"></i></div>
+        <div class="orb-core"></div>
+        <div class="art-caption">Curiosity in motion · Est. 2026</div>
+      </div>
+    </div>
+  </section>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>People analytics</span> ✳ Human-centred work ✳ <span>Evidence-led decisions</span> ✳ Organisational change ✳
+    <span>People analytics</span> ✳ Human-centred work ✳ <span>Evidence-led decisions</span> ✳ Organisational change ✳
+  </div></div>
 
-      <div class="portrait">
-        <svg viewBox="0 0 480 480" aria-hidden="true" focusable="false">
-          <circle cx="240" cy="240" r="178" fill="#DAD3BC"/>
-          <g class="burst" stroke="#D6A12B" stroke-width="5" stroke-linecap="round" fill="#D6A12B">
-            <g id="rays">
-              <g><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(22.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(45 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(67.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(90 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(112.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(135 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(157.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(180 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(202.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(225 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(247.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(270 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(292.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-              <g transform="rotate(315 240 240)"><line x1="240" y1="8" x2="240" y2="48"/><circle cx="240" cy="8" r="7" stroke="none"/></g>
-              <g transform="rotate(337.5 240 240)"><line x1="240" y1="28" x2="240" y2="48"/><circle cx="240" cy="28" r="5" stroke="none"/></g>
-            </g>
-          </g>
-        </svg>
-        <div class="arch">
-          <span class="initials" aria-hidden="true">EP</span>
-          <!-- Add your photo as profile.jpg in the same folder as this file -->
-          <img src="profile.jpg" alt="Portrait of Elly Parngamvichit" onerror="this.remove()">
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <p class="section-index">01 / A little about me</p>
+        <h2>People first.<br>Curiosity always.</h2>
+      </div>
+      <div class="about-copy">
+        <p>I'm Elly, a UCL Master's student exploring how data can help us understand people and build better workplaces.</p>
+        <p>With a background in psychology and HR, I'm interested in the space where human behaviour, business decisions and technology meet. I enjoy turning complex questions into practical insights — whether that's understanding employee experiences, improving people processes or supporting organisational change.</p>
+        <p>This is a collection of ideas, projects and things I'm learning along the way.</p>
+        <div class="interest-row">
+          <span>People Analytics</span><span>HR Transformation</span><span>Employee Experience</span><span>Organisational Change</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="about" id="about">
+
+  <section class="data-section" id="data">
     <div class="wrap">
-      <h2>About me</h2>
-      <div>
-        <p>I'm Elly, a Master's student at UCL studying People Analytics and Human-Centric Management. My course sits where data meets the workplace: using evidence to understand how people work, and to build organisations that work better for them.</p>
-        <p>I'm interested in decisions about people that are grounded in data and still treat people as people. [Edit this paragraph: add your background, what you're working on now, and the roles or topics you're looking for.]</p>
+      <div class="section-head">
+        <div><p class="section-index">02 / Selected work</p><h2>Data visualisation<br>sample.</h2></div>
+        <p class="data-intro">A small climate-data exploration: compare cities, look at seasonal patterns and see how temperatures have shifted over time.</p>
+      </div>
+      <div class="viz-card">
+        <div class="viz-kicker">Climate data · Interactive exploration</div>
+        <div class="viz-title">Is your city getting warmer?</div>
+        <p class="viz-copy">Temperature anomaly (°C) relative to each city's 1961–1990 average. Hover over the lines to inspect individual years.</p>
+        <div class="viz-controls">
+          <label>Choose cities
+            <select id="citySelect" multiple size="4" aria-label="Choose up to four cities" disabled></select>
+          </label>
+          <label>View
+            <select id="seasonSelect" aria-label="Choose annual or seasonal view" disabled>
+              <option value="year">Whole year</option>
+              <option value="winter">Winter</option>
+              <option value="spring">Spring</option>
+              <option value="summer">Summer</option>
+              <option value="autumn">Autumn</option>
+            </select>
+          </label>
+          <button id="updateChart" type="button" disabled>Update chart</button>
+        </div>
+        <div id="cityChart" role="img" aria-label="Interactive line chart showing city temperature anomalies over time">
+          <p class="viz-status">Loading city temperature data…</p>
+        </div>
+        <p class="viz-status" id="chartStatus" aria-live="polite"><strong>Data source:</strong> city_temperature.csv</p>
+        <p class="viz-note">The chart uses the dataset and seasonal definitions in the accompanying TEMPCITY notebook. Place <code>city_temperature.csv</code> in the same folder as this HTML file for the visualisation to load.</p>
       </div>
     </div>
   </section>
@@ -200,8 +201,8 @@
   <section class="contact" id="contact">
     <div class="wrap">
       <div>
-        <h2>Contact</h2>
-        <p>The best way to reach me is on LinkedIn.</p>
+        <p class="section-index" style="color:#8CB9D8">03 / Say hello</p><h2>Have a good<br>question?</h2>
+        <p>I’m always happy to connect about people, data, HR and ideas for better work.</p>
       </div>
       <a class="button" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">Message me on LinkedIn</a>
     </div>
@@ -211,6 +212,124 @@
 <footer>
   <div class="wrap">&copy; 2026 Elly Parngamvichit</div>
 </footer>
+
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script>
+(() => {
+  const csvPath = "city_temperature.csv";
+  const citySelect = document.getElementById("citySelect");
+  const seasonSelect = document.getElementById("seasonSelect");
+  const updateButton = document.getElementById("updateChart");
+  const status = document.getElementById("chartStatus");
+  const chart = document.getElementById("cityChart");
+  const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const seasonMonths = {
+    winter: { north: [12,1,2], south: [6,7,8] },
+    spring: { north: [3,4,5], south: [9,10,11] },
+    summer: { north: [6,7,8], south: [12,1,2] },
+    autumn: { north: [9,10,11], south: [3,4,5] }
+  };
+  const palette = ["#315D82", "#A56F2C", "#6F91A8", "#53616E"];
+  let rows = [];
+
+  function parseCSV(text) {
+    const lines = text.trim().split(/\r?\n/);
+    const headers = lines.shift().split(",").map(x => x.trim());
+    return lines.map(line => {
+      const values = line.match(/("([^"]|"")*"|[^,]*)(,|$)/g) || [];
+      const cells = values.map(v => v.replace(/,$/, "").replace(/^"|"$/g, "").replace(/""/g, '"'));
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = cells[i] ?? "");
+      return {
+        city: obj.city, country: obj.country, lat: Number(obj.lat),
+        year: Number(obj.year), month: Number(obj.month),
+        temp_c: Number(obj.temp_c), diff_c: Number(obj.diff_c)
+      };
+    }).filter(d => d.city && Number.isFinite(d.year) && Number.isFinite(d.diff_c));
+  }
+
+  function getSeasonYear(row, mode) {
+    if (mode === "year") return row.year;
+    const months = seasonMonths[mode];
+    const north = row.lat >= 0;
+    const allowed = north ? months.north : months.south;
+    if (!allowed.includes(row.month)) return null;
+    // December belongs to the following winter/summer season-year.
+    return row.year + (row.month === 12 ? 1 : 0);
+  }
+
+  function render() {
+    const selected = Array.from(citySelect.selectedOptions).map(o => o.value).slice(0,4);
+    const mode = seasonSelect.value;
+    if (!selected.length) {
+      chart.innerHTML = "<p class='viz-status'>Choose at least one city to draw the chart.</p>";
+      return;
+    }
+    const grouped = new Map();
+    rows.filter(r => selected.includes(r.city)).forEach(r => {
+      const sy = getSeasonYear(r, mode);
+      if (sy === null) return;
+      const key = r.city + "|" + sy;
+      if (!grouped.has(key)) grouped.set(key, {city:r.city, year:sy, sum:0, n:0});
+      const g = grouped.get(key); g.sum += r.diff_c; g.n += 1;
+    });
+    const traces = selected.map((city, i) => {
+      const points = Array.from(grouped.values()).filter(g => g.city === city && g.n > 0).sort((a,b) => a.year-b.year);
+      return {
+        x: points.map(p => p.year),
+        y: points.map(p => p.sum / p.n),
+        type: "scatter", mode: "lines",
+        name: city,
+        line: {color: palette[i], width: 2.8, shape: "spline"},
+        hovertemplate: "<b>" + city + "</b><br>%{x}: %{y:+.2f} °C<extra></extra>"
+      };
+    });
+    const modeName = mode === "year" ? "Annual" : mode.charAt(0).toUpperCase() + mode.slice(1);
+    Plotly.newPlot(chart, traces, {
+      autosize: true, height: 420,
+      margin: {l:58,r:24,t:18,b:54},
+      paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "#F1F5F8",
+      font: {family:"Jost, Arial, sans-serif", color:"#263D52", size:12},
+      hovermode:"x unified",
+      xaxis:{title:"Year", gridcolor:"#D9E1E8", zeroline:false, linecolor:"#AAB9C6"},
+      yaxis:{title:"Temperature anomaly (°C)", gridcolor:"#D9E1E8", zeroline:true, zerolinecolor:"#71879A", ticksuffix:"°"},
+      legend:{orientation:"h", y:-0.22},
+      title:{text:modeName + " temperature anomaly", x:0.02, font:{size:15}}
+    }, {responsive:true, displaylogo:false});
+    status.innerHTML = "<strong>Showing:</strong> " + selected.join(", ") + " · " + modeName.toLowerCase() +
+      " anomaly · " + (rows.length.toLocaleString()) + " monthly records loaded.";
+  }
+
+  fetch(csvPath)
+    .then(response => {
+      if (!response.ok) throw new Error("CSV file not found");
+      return response.text();
+    })
+    .then(text => {
+      rows = parseCSV(text);
+      if (!rows.length) throw new Error("The CSV was found, but no usable rows were detected.");
+      const cities = [...new Set(rows.map(r => r.city))].sort();
+      cities.forEach(city => {
+        const option = document.createElement("option");
+        option.value = city; option.textContent = city;
+        if (["London","Sydney"].includes(city)) option.selected = true;
+        citySelect.appendChild(option);
+      });
+      if (!Array.from(citySelect.selectedOptions).length && cities.length) citySelect.options[0].selected = true;
+      [citySelect, seasonSelect, updateButton].forEach(el => el.disabled = false);
+      updateButton.addEventListener("click", render);
+      citySelect.addEventListener("change", () => {
+        if (citySelect.selectedOptions.length > 4) citySelect.options[citySelect.selectedIndex].selected = false;
+      });
+      render();
+    })
+    .catch(() => {
+      chart.innerHTML = "<div class='viz-status'><strong>Dataset needed.</strong><br>The notebook refers to <code>city_temperature.csv</code>, but that file was not included with the upload. Add it beside <code>index.html</code> to activate the interactive city and season controls.</div>";
+      status.innerHTML = "<strong>Waiting for:</strong> city_temperature.csv";
+    });
+})();
+</script>
 
 </body>
 </html>
